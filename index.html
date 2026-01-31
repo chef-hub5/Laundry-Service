@@ -1,0 +1,2398 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaare - Professional Cleaning Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF6A00',
+                        'primary-dark': '#E65A00',
+                        'text-dark': '#1A1A1A',
+                        'text-body': '#555555',
+                        'bg-light': '#F8F8F8'
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        /* 3D Card Flip Styles */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        .transform-style-preserve-3d {
+            transform-style: preserve-3d;
+        }
+        
+        .backface-hidden {
+            backface-visibility: hidden;
+        }
+        
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        
+        .pricing-card:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .service-card:hover {
+            transform: rotateY(180deg);
+        }
+        
+        /* Ensure smooth transitions */
+        .pricing-card-front,
+        .pricing-card-back,
+        .service-card-front,
+        .service-card-back {
+            transition: all 0.3s ease;
+        }
+        
+        /* Add subtle hover effects to images */
+        .pricing-card-front img,
+        .service-card-front img {
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card-container:hover .pricing-card-front img,
+        .service-card-container:hover .service-card-front img {
+            transform: scale(1.05);
+        }
+
+        /* Custom animations */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 106, 0, 0.5);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 1s ease-out;
+        }
+
+        .animate-slide-up {
+            animation: slide-up 0.8s ease-out;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading states */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Enhanced button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6A00 0%, #E65A00 100%);
+            box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
+        }
+
+        /* Testimonial card enhancements */
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid rgba(255, 106, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(255, 106, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile responsiveness improvements */
+        @media (max-width: 640px) {
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Focus states for accessibility */
+        button:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #FF6A00;
+            outline-offset: 2px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF6A00;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E65A00;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-white text-text-body"><!-- Navigation -->
+  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <div class="flex items-center"><a href="#" onclick="showMainPage()" class="text-2xl font-bold text-text-dark hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+     </div>
+     <div class="hidden md:block">
+      <div class="ml-10 flex items-baseline space-x-8"><a href="#home" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Home</a> <a href="#" onclick="showAboutPage()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">About Us</a> <a href="#pricing" onclick="showMainPage(); setTimeout(() => document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}), 100)" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Pricing</a> <a href="#" onclick="showContactModal()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Contact Us</a> <button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200">Book Now</button>
+      </div>
+     </div>
+     <div class="md:hidden"><button onclick="toggleMobileMenu()" class="text-text-body hover:text-primary">
+       <svg class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div>
+   </div><!-- Mobile menu -->
+   <div id="mobile-menu" class="md:hidden hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg"><a href="#home" class="text-text-body hover:text-primary block px-3 py-2 text-base font-medium">Home</a> <a href="#" onclick="showAboutPage()" class="text-text-body hover:text-primary block px-3 py-2 text-base font-medium">About Us</a> <a href="#pricing" onclick="showMainPage(); setTimeout(() => document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}), 100)" class="text-text-body hover:text-primary block px-3 py-2 text-base font-medium">Pricing</a> <a href="#" onclick="showContactModal()" class="text-text-body hover:text-primary block px-3 py-2 text-base font-medium">Contact Us</a> <button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium w-full text-left">Book Now</button>
+    </div>
+   </div>
+  </nav><!-- Main Content -->
+  <div id="main-content"><!-- Hero Section -->
+   <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <video id="hero-video" autoplay muted loop class="absolute inset-0 w-full h-full object-cover"><source src="laundry.mp4" type="video/mp4"> Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60"></div>
+    <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 animate-fade-in">
+     <div class="mb-6"><span class="inline-block bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary-light px-4 py-2 rounded-full text-sm font-medium mb-4">✨ Lagos' #1 Cleaning Service</span>
+     </div>
+     <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Professional Cleaning Services</h1>
+     <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto opacity-90">Get matched with skilled &amp; thoroughly vetted cleaners. Book your cleaning service today!</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center"><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">Book Now</button> <button onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'})" class="border-2 border-white/30 backdrop-blur-sm text-white hover:bg-white/10 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300">View Pricing</button>
+     </div>
+     <div class="mt-12 flex justify-center items-center space-x-8 text-sm opacity-80">
+      <div class="flex items-center">
+       <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>Insured &amp; Bonded</span>
+      </div>
+      <div class="flex items-center">
+       <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>Same Day Service</span>
+      </div>
+      <div class="flex items-center">
+       <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+       </svg><span>100% Satisfaction</span>
+      </div>
+     </div>
+    </div><!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+     <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     </svg>
+    </div>
+   </section><!-- Second Section -->
+   <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+       <h2 class="text-4xl font-bold text-text-dark mb-6">Get matched with skilled &amp; thoroughly vetted Cleaners Sparklers to do your cleaning so you don't have to</h2><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">Book Now</button>
+      </div>
+      <div class="flex justify-center"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Professional Cleaner" class="rounded-lg shadow-lg max-w-full h-auto">
+      </div>
+     </div>
+    </div>
+   </section><!-- Third Section -->
+   <section class="py-20 bg-bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+     <h2 class="text-4xl font-bold text-text-dark mb-4">Cleaning? Laundry? Ironing?</h2>
+     <p class="text-2xl font-semibold text-primary mb-4">Start with as low as ₦5000</p>
+     <p class="text-xl text-text-body max-w-2xl mx-auto">Home chores don't have to be a pain! 🧼<br><br>
+      Get access to professional cleaning services done by our skilled and vetted Sparklers everyday of the week.</p>
+    </div>
+   </section><!-- Services Section -->
+   <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h2 class="text-4xl font-bold text-text-dark text-center mb-16">Our Services</h2>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Regular Cleaning Card -->
+      <div class="service-card-container h-[400px] perspective-1000">
+       <div class="service-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="service-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img id="regular-cleaning-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Regular Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Regular Cleaning</h3>
+          <p class="text-sm opacity-90 leading-tight">Weekly • Bi-weekly • Monthly</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="service-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg p-6 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-center">
+          <h3 class="text-2xl font-bold text-text-dark mb-4">Regular Cleaning</h3>
+          <p class="text-text-body mb-6 leading-relaxed">Weekly, bi-weekly, or monthly cleaning services to keep your home spotless and maintain a healthy living environment.</p>
+          <ul class="text-left text-sm text-text-body space-y-2 mb-6">
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Dusting and vacuuming</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Kitchen and bathroom cleaning</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Trash removal</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Floor mopping</li>
+          </ul>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">Book Now</button>
+        </div>
+       </div>
+      </div><!-- Deep Cleaning Card -->
+      <div class="service-card-container h-[400px] perspective-1000">
+       <div class="service-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="service-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img id="deep-cleaning-img" src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Deep Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute top-4 right-4">
+          <div class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+           Most Popular
+          </div>
+         </div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Deep Cleaning</h3>
+          <p class="text-sm opacity-90 leading-tight">Comprehensive • Thorough</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="service-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg p-6 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-center">
+          <div class="bg-primary text-white px-3 py-1 rounded-full text-xs font-medium mb-3 inline-block self-center">
+           Most Popular
+          </div>
+          <h3 class="text-2xl font-bold text-text-dark mb-4">Deep Cleaning</h3>
+          <p class="text-text-body mb-6 leading-relaxed">Comprehensive cleaning service for a thorough refresh of your space. Perfect for seasonal cleaning or special occasions.</p>
+          <ul class="text-left text-sm text-text-body space-y-2 mb-6">
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Everything in Regular Clean</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Inside appliances cleaning</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Baseboards and windows</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Cabinet fronts</li>
+          </ul>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">Book Now</button>
+        </div>
+       </div>
+      </div><!-- Move-in Cleaning Card -->
+      <div class="service-card-container h-[400px] perspective-1000">
+       <div class="service-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="service-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img id="movein-cleaning-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Move-in Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Move-in Cleaning</h3>
+          <p class="text-sm opacity-90 leading-tight">Fresh Start • Move-in Ready</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="service-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white rounded-lg p-6 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-center">
+          <h3 class="text-2xl font-bold text-text-dark mb-4">Move-in Cleaning</h3>
+          <p class="text-text-body mb-6 leading-relaxed">Perfect for new homes or apartments. Get your space move-in ready with our comprehensive cleaning service.</p>
+          <ul class="text-left text-sm text-text-body space-y-2 mb-6">
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Complete sanitization</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>All surfaces deep cleaned</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Inside cabinets &amp; drawers</li>
+           <li class="flex items-center"><span class="text-primary mr-2">✓</span>Move-in ready guarantee</li>
+          </ul>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 transform hover:scale-105">Book Now</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Gift Section -->
+   <section class="py-20 bg-bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+     <h2 class="text-4xl font-bold text-text-dark mb-8">Gift a Loved One Cleaning Service</h2>
+     <p class="text-xl text-text-body mb-8 max-w-2xl mx-auto">Show someone you care by giving them the gift of a clean home. Perfect for new parents, busy professionals, or anyone who deserves a break.</p><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">Gift Cleaning Service</button>
+    </div>
+   </section><!-- Pricing Section -->
+   <section id="pricing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h2 class="text-4xl font-bold text-text-dark text-center mb-16">Simple, Transparent Pricing</h2>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Basic Clean Card -->
+      <div class="pricing-card-container h-[420px] perspective-1000">
+       <div class="pricing-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="pricing-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Basic Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Basic Clean</h3>
+          <p class="text-lg font-semibold">₦5,000</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="pricing-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white border-2 border-gray-200 rounded-lg p-5 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-between">
+          <div>
+           <h3 class="text-xl font-bold text-text-dark mb-3">Basic Clean</h3>
+           <div class="text-3xl font-bold text-primary mb-3">
+            ₦5,000
+           </div>
+           <p class="text-sm text-text-body mb-4">Perfect for regular maintenance cleaning</p>
+           <ul class="text-left text-sm text-text-body space-y-1.5">
+            <li>✓ Dusting and vacuuming</li>
+            <li>✓ Kitchen cleaning</li>
+            <li>✓ Bathroom cleaning</li>
+            <li>✓ Trash removal</li>
+           </ul>
+          </div>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200 mt-4">Book Now</button>
+        </div>
+       </div>
+      </div><!-- Deep Clean Card (Most Popular) -->
+      <div class="pricing-card-container h-[420px] perspective-1000 transform scale-105">
+       <div class="pricing-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="pricing-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Deep Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute top-4 left-4">
+          <div class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+           Most Popular
+          </div>
+         </div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Deep Clean</h3>
+          <p class="text-lg font-semibold">₦8,000</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="pricing-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white border-2 border-primary rounded-lg p-5 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-between">
+          <div>
+           <div class="bg-primary text-white px-3 py-1 rounded-full text-xs font-medium mb-3 inline-block">
+            Most Popular
+           </div>
+           <h3 class="text-xl font-bold text-text-dark mb-3">Deep Clean</h3>
+           <div class="text-3xl font-bold text-primary mb-3">
+            ₦8,000
+           </div>
+           <p class="text-sm text-text-body mb-4">Comprehensive cleaning service</p>
+           <ul class="text-left text-sm text-text-body space-y-1.5">
+            <li>✓ Everything in Basic</li>
+            <li>✓ Inside appliances</li>
+            <li>✓ Baseboards and windows</li>
+            <li>✓ Cabinet fronts</li>
+           </ul>
+          </div>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200 mt-4">Book Now</button>
+        </div>
+       </div>
+      </div><!-- Premium Clean Card -->
+      <div class="pricing-card-container h-[420px] perspective-1000">
+       <div class="pricing-card relative w-full h-full transition-transform duration-700 transform-style-preserve-3d hover:rotate-y-180"><!-- Front of card (Image) -->
+        <div class="pricing-card-front absolute inset-0 w-full h-full backface-hidden rounded-lg overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Premium Cleaning Service" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+         <div class="absolute bottom-4 left-4 right-4 text-white">
+          <h3 class="text-xl font-bold mb-1 leading-tight">Premium Clean</h3>
+          <p class="text-lg font-semibold">₦12,000</p>
+         </div>
+        </div><!-- Back of card (Details) -->
+        <div class="pricing-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white border-2 border-gray-200 rounded-lg p-5 text-center flex flex-col shadow-lg">
+         <div class="flex-1 flex flex-col justify-between">
+          <div>
+           <h3 class="text-xl font-bold text-text-dark mb-3">Premium Clean</h3>
+           <div class="text-3xl font-bold text-primary mb-3">
+            ₦12,000
+           </div>
+           <p class="text-sm text-text-body mb-4">Ultimate cleaning experience</p>
+           <ul class="text-left text-sm text-text-body space-y-1.5">
+            <li>✓ Everything in Deep Clean</li>
+            <li>✓ Laundry service</li>
+            <li>✓ Ironing service</li>
+            <li>✓ Organization service</li>
+           </ul>
+          </div>
+         </div><button onclick="showBookingPage()" class="w-full bg-primary hover:bg-primary-dark text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200 mt-4">Book Now</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Testimonials Section -->
+   <section class="py-20 bg-bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h2 class="text-4xl font-bold text-text-dark text-center mb-4">What Our Customers Say</h2>
+     <p class="text-xl text-text-body text-center mb-16 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers who trust Shaare for their cleaning needs.</p>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Testimonial 1 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-1-img" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Sarah Johnson</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lagos Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"Absolutely amazing service! The Sparkler assigned to my home was professional, thorough, and paid attention to every detail. My apartment has never looked better. I've been using Shaare for 6 months now and couldn't be happier."</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Deep Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Bi-weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 2 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-2-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Michael Adebayo" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Michael Adebayo</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Victoria Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"As a busy professional, Shaare has been a lifesaver. The booking process is seamless, and the cleaners are always punctual and reliable. They use eco-friendly products which is important to me. Highly recommend!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Premium Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 3 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-3-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Emma Okafor" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Emma Okafor</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lekki Phase 1</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"I used Shaare for my move-in cleaning and was blown away by the quality. They made my new home spotless and move-in ready. The team was respectful of my belongings and worked efficiently. Will definitely use again!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Move-in Clean</span> <span><span class="font-medium text-primary">Frequency:</span> One-time</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Call to Action -->
+     <div class="text-center mt-12">
+      <p class="text-lg text-text-body mb-6">Join thousands of satisfied customers who trust Shaare</p><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 transform hover:scale-105">Book Your Cleaning Today</button>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-text-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-4 gap-8">
+      <div><a href="#" onclick="showMainPage()" class="text-2xl font-bold mb-4 block hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+       <p class="text-gray-300">Professional cleaning services you can trust.</p>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Services</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>Regular Cleaning</li>
+        <li>Deep Cleaning</li>
+        <li>Move-in Cleaning</li>
+        <li>Laundry &amp; Ironing</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Company</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li><a href="#" onclick="showAboutPage()" class="hover:text-primary">About Us</a></li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li><a href="#" onclick="event.preventDefault(); showTerms();" class="hover:text-primary cursor-pointer">Terms &amp; Conditions</a></li>
+        <li><a href="#" onclick="event.preventDefault(); showPrivacy();" class="hover:text-primary cursor-pointer">Privacy Policy</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Contact</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>📞 +234 123 456 7890</li>
+        <li>✉️ hello@shaare.com</li>
+        <li>📍 Lagos, Nigeria</li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+      <p>© 2024 Shaare. All rights reserved.</p>
+     </div>
+    </div>
+   </footer><!-- Terms Modal -->
+   <div id="terms-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-4xl max-h-[80vh] overflow-y-auto p-6">
+     <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-text-dark">Terms and Conditions</h2><button onclick="closeModal('terms-modal')" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+     </div>
+     <div class="space-y-4 text-text-body">
+      <h3 class="text-lg font-semibold">1. Service Agreement</h3>
+      <p>By booking our cleaning services, you agree to these terms and conditions. Shaare provides professional cleaning services through vetted and insured cleaning professionals ("Sparklers").</p>
+      <h3 class="text-lg font-semibold">2. Booking and Payment</h3>
+      <p>• Payment is due upon completion of service unless otherwise arranged</p>
+      <p>• Prices are estimates and may vary based on actual property condition</p>
+      <p>• Additional services requested during cleaning will incur extra charges</p>
+      <p>• We accept cash, bank transfer, and mobile payments</p>
+      <h3 class="text-lg font-semibold">3. Cancellation Policy</h3>
+      <p>• Cancellations must be made at least 24 hours before scheduled service</p>
+      <p>• Same-day cancellations may incur a 50% service fee</p>
+      <p>• No-shows will be charged the full service amount</p>
+      <h3 class="text-lg font-semibold">4. Access and Security</h3>
+      <p>• You must provide safe and legal access to your property</p>
+      <p>• All access codes and keys must be provided in advance</p>
+      <p>• You are responsible for securing valuable items</p>
+      <p>• Our Sparklers are insured and background-checked</p>
+      <h3 class="text-lg font-semibold">5. Service Standards</h3>
+      <p>• We guarantee professional service quality</p>
+      <p>• If unsatisfied, we offer re-cleaning within 24 hours of service</p>
+      <p>• Damage claims must be reported within 24 hours</p>
+      <p>• We use eco-friendly cleaning products unless specified otherwise</p>
+      <h3 class="text-lg font-semibold">6. Liability</h3>
+      <p>• Shaare is insured for damages up to ₦500,000 per incident</p>
+      <p>• We are not liable for pre-existing damage or wear</p>
+      <p>• Customers must report any damage immediately</p>
+      <h3 class="text-lg font-semibold">7. Health and Safety</h3>
+      <p>• Please inform us of any allergies or health concerns</p>
+      <p>• Pets should be secured during cleaning</p>
+      <p>• We follow all COVID-19 safety protocols</p>
+     </div>
+     <div class="mt-6 text-center"><button onclick="closeModal('terms-modal')" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg">Close</button>
+     </div>
+    </div>
+   </div><!-- Privacy Policy Modal -->
+   <div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-4xl max-h-[80vh] overflow-y-auto p-6">
+     <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-text-dark">Privacy Policy</h2><button onclick="closeModal('privacy-modal')" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+     </div>
+     <div class="space-y-4 text-text-body">
+      <h3 class="text-lg font-semibold">Information We Collect</h3>
+      <p>We collect information you provide when booking our services, including:</p>
+      <p>• Personal information (name, phone, email, address)</p>
+      <p>• Property details and access information</p>
+      <p>• Service preferences and special instructions</p>
+      <p>• Payment information (processed securely through third parties)</p>
+      <h3 class="text-lg font-semibold">How We Use Your Information</h3>
+      <p>Your information is used to:</p>
+      <p>• Provide and improve our cleaning services</p>
+      <p>• Communicate about your bookings and service updates</p>
+      <p>• Process payments and maintain records</p>
+      <p>• Ensure safety and security of our services</p>
+      <p>• Send promotional offers (with your consent)</p>
+      <h3 class="text-lg font-semibold">Information Sharing</h3>
+      <p>We share your information only with:</p>
+      <p>• Assigned Sparklers (only necessary service details)</p>
+      <p>• Payment processors (for transaction processing)</p>
+      <p>• Legal authorities (when required by law)</p>
+      <p>• We never sell your personal information to third parties</p>
+      <h3 class="text-lg font-semibold">Data Security</h3>
+      <p>We protect your information through:</p>
+      <p>• Encrypted data transmission and storage</p>
+      <p>• Regular security audits and updates</p>
+      <p>• Limited access on a need-to-know basis</p>
+      <p>• Secure disposal of outdated information</p>
+      <h3 class="text-lg font-semibold">Your Rights</h3>
+      <p>You have the right to:</p>
+      <p>• Access your personal information</p>
+      <p>• Correct inaccurate information</p>
+      <p>• Request deletion of your data</p>
+      <p>• Opt-out of marketing communications</p>
+      <p>• File complaints with data protection authorities</p>
+      <h3 class="text-lg font-semibold">Contact Us</h3>
+      <p>For privacy-related questions or requests:</p>
+      <p>Email: privacy@shaare.com</p>
+      <p>Phone: +234 123 456 7890</p>
+      <p>Address: Lagos, Nigeria</p>
+      <p class="text-sm text-gray-500 mt-4">Last updated: December 2024</p>
+     </div>
+     <div class="mt-6 text-center"><button onclick="closeModal('privacy-modal')" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg">Close</button>
+     </div>
+    </div>
+   </div><!-- Feedback Modal -->
+   <div id="feedback-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
+     <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-bold text-text-dark">Share Your Feedback</h2><button onclick="closeFeedbackModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+     </div>
+     <form id="feedback-form" class="space-y-6">
+      <div><label class="block text-text-dark font-medium mb-3">How would you rate our service? *</label>
+       <div class="flex justify-center space-x-2 mb-4"><button type="button" onclick="setRating(1)" class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200">⭐</button> <button type="button" onclick="setRating(2)" class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200">⭐</button> <button type="button" onclick="setRating(3)" class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200">⭐</button> <button type="button" onclick="setRating(4)" class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200">⭐</button> <button type="button" onclick="setRating(5)" class="rating-star text-4xl text-gray-300 hover:text-yellow-400 transition-colors duration-200">⭐</button>
+       </div>
+       <div class="text-center"><span id="rating-text" class="text-text-body font-medium">Click stars to rate</span>
+       </div><input type="hidden" id="feedback-rating" required>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+       <div><label class="block text-text-dark font-medium mb-2">Your Name *</label> <input type="text" id="feedback-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your full name">
+       </div>
+       <div><label class="block text-text-dark font-medium mb-2">Email Address *</label> <input type="email" id="feedback-email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your.email@example.com">
+       </div>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Service Used</label> <select id="feedback-service" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option value="">Select service (optional)</option> <option value="basic">Basic Clean</option> <option value="deep">Deep Clean</option> <option value="premium">Premium Clean</option> <option value="movein">Move-in Cleaning</option> <option value="gift">Gift Service</option> </select>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">What did you like most about our service?</label> <textarea id="feedback-positive" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Tell us what we did well..."></textarea>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">How can we improve? *</label> <textarea id="feedback-improvement" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Your feedback helps us serve you better..."></textarea>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Would you recommend us to others?</label>
+       <div class="flex space-x-4"><label class="flex items-center"> <input type="radio" name="recommend" value="yes" class="mr-2 text-primary focus:ring-primary"> <span>Yes, definitely!</span> </label> <label class="flex items-center"> <input type="radio" name="recommend" value="maybe" class="mr-2 text-primary focus:ring-primary"> <span>Maybe</span> </label> <label class="flex items-center"> <input type="radio" name="recommend" value="no" class="mr-2 text-primary focus:ring-primary"> <span>No</span> </label>
+       </div>
+      </div>
+      <div><label class="flex items-start"> <input type="checkbox" id="feedback-testimonial" class="mr-3 mt-1 text-primary focus:ring-primary"> <span class="text-sm text-text-body">I give permission for Shaare to use my feedback as a testimonial on their website (your name and photo may be used).</span> </label>
+      </div>
+      <div class="flex justify-end space-x-4 pt-4"><button type="button" onclick="closeFeedbackModal()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">Cancel</button> <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Submit Feedback</button>
+      </div>
+     </form>
+    </div>
+   </div><!-- Contact Us Modal -->
+   <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6">
+     <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-bold text-text-dark">Contact Us</h2><button onclick="closeModal('contact-modal')" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+     </div><!-- Contact Information -->
+     <div class="mb-8 p-6 bg-bg-light rounded-lg">
+      <h3 class="text-xl font-bold text-text-dark mb-4">Get in Touch</h3>
+      <div class="space-y-3 text-text-body">
+       <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21L6.16 10.928c-.65.35-.65 1.094 0 1.444l3.468 1.859a1 1 0 001.444 0l3.468-1.859c.65-.35.65-1.094 0-1.444l-4.064-2.541a1 1 0 01-.502-1.21L11.472 3.684A1 1 0 0112.42 3H15.7a2 2 0 012 2v1a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+        </svg><span><strong>Phone:</strong> +234 123 456 7890</span>
+       </div>
+       <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg><span><strong>Email:</strong> hello@shaare.com</span>
+       </div>
+       <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg><span><strong>Address:</strong> Lagos, Nigeria</span>
+       </div>
+       <div class="flex items-center">
+        <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg><span><strong>Hours:</strong> Mon-Sun, 8AM-8PM</span>
+       </div>
+      </div>
+     </div><!-- Contact Form -->
+     <form id="contact-form" class="space-y-6">
+      <h3 class="text-xl font-bold text-text-dark mb-4">Send us a Message</h3>
+      <div class="grid md:grid-cols-2 gap-4">
+       <div><label class="block text-text-dark font-medium mb-2">First Name *</label> <input type="text" id="contact-first-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your first name">
+       </div>
+       <div><label class="block text-text-dark font-medium mb-2">Last Name *</label> <input type="text" id="contact-last-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your last name">
+       </div>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Email Address *</label> <input type="email" id="contact-form-email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your.email@example.com">
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Phone Number *</label> <input type="tel" id="contact-form-phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="08012345678" oninput="validatePhoneInput(this)">
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Subject *</label> <select id="contact-subject" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option value="">Select a subject</option> <option value="general">General Inquiry</option> <option value="booking">Booking Question</option> <option value="service">Service Information</option> <option value="complaint">Complaint</option> <option value="feedback">Feedback</option> <option value="partnership">Partnership Opportunity</option> <option value="other">Other</option> </select>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Property Type (if applicable)</label> <select id="contact-property-type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option value="">Select property type</option> <option value="apartment">Apartment</option> <option value="house">House</option> <option value="duplex">Duplex</option> <option value="office">Office</option> <option value="other">Other</option> </select>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Preferred Contact Method</label>
+       <div class="flex space-x-4"><label class="flex items-center"> <input type="radio" name="contact-method" value="phone" class="mr-2 text-primary focus:ring-primary"> <span>Phone</span> </label> <label class="flex items-center"> <input type="radio" name="contact-method" value="email" class="mr-2 text-primary focus:ring-primary" checked> <span>Email</span> </label> <label class="flex items-center"> <input type="radio" name="contact-method" value="whatsapp" class="mr-2 text-primary focus:ring-primary"> <span>WhatsApp</span> </label>
+       </div>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Best Time to Contact</label> <select id="contact-time" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option value="">Any time</option> <option value="morning">Morning (8AM - 12PM)</option> <option value="afternoon">Afternoon (12PM - 4PM)</option> <option value="evening">Evening (4PM - 8PM)</option> </select>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">Message *</label> <textarea id="contact-message" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="5" placeholder="Please tell us how we can help you..."></textarea>
+      </div>
+      <div><label class="block text-text-dark font-medium mb-2">How did you hear about us?</label> <select id="contact-source" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option value="">Select source</option> <option value="google">Google Search</option> <option value="social">Social Media</option> <option value="referral">Friend/Family Referral</option> <option value="advertisement">Online Advertisement</option> <option value="other">Other</option> </select>
+      </div>
+      <div><label class="flex items-start"> <input type="checkbox" id="contact-newsletter" class="mr-3 mt-1 text-primary focus:ring-primary"> <span class="text-sm text-text-body">I would like to receive updates about services and special offers via email.</span> </label>
+      </div>
+      <div class="flex justify-end space-x-4 pt-4"><button type="button" onclick="closeModal('contact-modal')" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">Cancel</button> <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Send Message</button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div><!-- About Page -->
+  <div id="about-page" class="hidden">
+   <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-16">
+      <div class="flex items-center"><a href="#" onclick="showMainPage()" class="text-2xl font-bold text-text-dark hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+      </div>
+      <div class="hidden md:block">
+       <div class="ml-10 flex items-baseline space-x-8"><a href="#" onclick="showMainPage()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Home</a> <a href="#" class="text-primary px-3 py-2 text-sm font-medium">About Us</a> <a href="#pricing" onclick="showMainPage(); setTimeout(() => document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}), 100)" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Pricing</a> <a href="#" onclick="showContactModal()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Contact Us</a> <button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200">Book Now</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </nav>
+   <div class="pt-16"><!-- About Hero -->
+    <section class="py-20 bg-bg-light">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold text-text-dark mb-6">About Shaare</h1>
+      <p class="text-xl text-text-body max-w-3xl mx-auto">We're on a mission to make home cleaning effortless and accessible for everyone. Our platform connects you with skilled, vetted cleaning professionals who care about your space as much as you do.</p>
+     </div>
+    </section><!-- Mission Section -->
+    <section class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+       <div>
+        <h2 class="text-4xl font-bold text-text-dark mb-6">Our Mission</h2>
+        <p class="text-lg text-text-body mb-6">At Shaare, we believe that everyone deserves a clean, comfortable home without the stress and time commitment of doing it themselves. We've built a platform that makes it easy to find, book, and trust professional cleaning services.</p>
+        <p class="text-lg text-text-body">Our carefully vetted Sparklers are not just cleaners – they're professionals who take pride in their work and understand that your home is your sanctuary.</p>
+       </div>
+       <div class="flex justify-center"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Our Mission" class="rounded-lg shadow-lg max-w-full h-auto">
+       </div>
+      </div>
+     </div>
+    </section><!-- Values Section -->
+    <section class="py-20 bg-bg-light">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-text-dark text-center mb-16">Our Values</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+       <div class="text-center p-8">
+        <div class="text-6xl mb-4">
+         🛡️
+        </div>
+        <h3 class="text-2xl font-bold text-text-dark mb-4">Trust &amp; Safety</h3>
+        <p class="text-text-body">All our Sparklers are thoroughly background-checked, insured, and trained to provide safe, reliable service.</p>
+       </div>
+       <div class="text-center p-8">
+        <div class="text-6xl mb-4">
+         ⭐
+        </div>
+        <h3 class="text-2xl font-bold text-text-dark mb-4">Quality Excellence</h3>
+        <p class="text-text-body">We maintain the highest standards of service quality through continuous training and customer feedback.</p>
+       </div>
+       <div class="text-center p-8">
+        <div class="text-6xl mb-4">
+         💚
+        </div>
+        <h3 class="text-2xl font-bold text-text-dark mb-4">Eco-Friendly</h3>
+        <p class="text-text-body">We use environmentally safe cleaning products that are effective yet gentle on your family and pets.</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Team Section -->
+    <section class="py-20 bg-white">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-text-dark text-center mb-16">Meet Our Team</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+       <div class="text-center"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=300&amp;q=80" alt="Team Member" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-bold text-text-dark mb-2">John Doe</h3>
+        <p class="text-text-body">Founder &amp; CEO</p>
+       </div>
+       <div class="text-center"><img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=300&amp;q=80" alt="Team Member" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-bold text-text-dark mb-2">Jane Smith</h3>
+        <p class="text-text-body">Head of Operations</p>
+       </div>
+       <div class="text-center"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=300&amp;q=80" alt="Team Member" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover">
+        <h3 class="text-xl font-bold text-text-dark mb-2">Mike Johnson</h3>
+        <p class="text-text-body">Customer Success Manager</p>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Testimonials Section -->
+   <section class="py-20 bg-bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h2 class="text-4xl font-bold text-text-dark text-center mb-4">What Our Customers Say</h2>
+     <p class="text-xl text-text-body text-center mb-16 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers who trust Shaare for their cleaning needs.</p>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Testimonial 1 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-1-img" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Sarah Johnson</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lagos Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"Absolutely amazing service! The Sparkler assigned to my home was professional, thorough, and paid attention to every detail. My apartment has never looked better. I've been using Shaare for 6 months now and couldn't be happier."</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Deep Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Bi-weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 2 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-2-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Michael Adebayo" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Michael Adebayo</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Victoria Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"As a busy professional, Shaare has been a lifesaver. The booking process is seamless, and the cleaners are always punctual and reliable. They use eco-friendly products which is important to me. Highly recommend!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Premium Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 3 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-3-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Emma Okafor" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Emma Okafor</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lekki Phase 1</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"I used Shaare for my move-in cleaning and was blown away by the quality. They made my new home spotless and move-in ready. The team was respectful of my belongings and worked efficiently. Will definitely use again!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Move-in Clean</span> <span><span class="font-medium text-primary">Frequency:</span> One-time</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Call to Action -->
+     <div class="text-center mt-12">
+      <p class="text-lg text-text-body mb-6">Join thousands of satisfied customers who trust Shaare</p><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 transform hover:scale-105">Book Your Cleaning Today</button>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-text-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-4 gap-8">
+      <div><a href="#" onclick="showMainPage()" class="text-2xl font-bold mb-4 block hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+       <p class="text-gray-300">Professional cleaning services you can trust.</p>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Services</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>Regular Cleaning</li>
+        <li>Deep Cleaning</li>
+        <li>Move-in Cleaning</li>
+        <li>Laundry &amp; Ironing</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Company</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li><a href="#" onclick="showAboutPage()" class="hover:text-primary">About Us</a></li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li><a href="#" onclick="event.preventDefault(); showTerms();" class="hover:text-primary cursor-pointer">Terms &amp; Conditions</a></li>
+        <li><a href="#" onclick="event.preventDefault(); showPrivacy();" class="hover:text-primary cursor-pointer">Privacy Policy</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Contact</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>📞 +234 123 456 7890</li>
+        <li>✉️ hello@shaare.com</li>
+        <li>📍 Lagos, Nigeria</li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+      <p>© 2024 Shaare. All rights reserved.</p>
+     </div>
+    </div>
+   </footer>
+  </div><!-- Booking Page -->
+  <div id="booking-page" class="hidden">
+   <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex justify-between items-center h-16">
+      <div class="flex items-center"><a href="#" onclick="showMainPage()" class="text-2xl font-bold text-text-dark hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+      </div>
+      <div class="hidden md:block">
+       <div class="ml-10 flex items-baseline space-x-8"><a href="#" onclick="showMainPage()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Home</a> <a href="#" onclick="showAboutPage()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">About Us</a> <a href="#pricing" onclick="showMainPage(); setTimeout(() => document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}), 100)" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Pricing</a> <a href="#" onclick="showContactModal()" class="text-text-body hover:text-primary transition-colors duration-200 px-3 py-2 text-sm font-medium">Contact Us</a> <button class="bg-primary text-white px-6 py-2 rounded-lg font-medium">Book Now</button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </nav>
+   <div class="pt-16 min-h-screen bg-bg-light"><!-- Booking Form -->
+    <section class="py-12">
+     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+       <h1 class="text-4xl font-bold text-text-dark text-center mb-8">Book Your Cleaning Service</h1><!-- Service Selection -->
+       <div class="mb-8">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Select Your Service</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+         <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary hover:shadow-lg transition-all duration-200 transform hover:scale-105" onclick="selectService('basic', 'Basic Clean', 5000)">
+          <h3 class="text-lg font-bold text-text-dark mb-2">Basic Clean</h3>
+          <p class="text-primary font-bold text-xl mb-2">₦5,000</p>
+          <p class="text-text-body text-sm">Regular maintenance cleaning</p>
+         </div>
+         <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary hover:shadow-lg transition-all duration-200 transform hover:scale-105" onclick="selectService('deep', 'Deep Clean', 8000)">
+          <h3 class="text-lg font-bold text-text-dark mb-2">Deep Clean</h3>
+          <p class="text-primary font-bold text-xl mb-2">₦8,000</p>
+          <p class="text-text-body text-sm">Comprehensive cleaning</p>
+         </div>
+         <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary hover:shadow-lg transition-all duration-200 transform hover:scale-105" onclick="selectService('premium', 'Premium Clean', 12000)">
+          <h3 class="text-lg font-bold text-text-dark mb-2">Premium Clean</h3>
+          <p class="text-primary font-bold text-xl mb-2">₦12,000</p>
+          <p class="text-text-body text-sm">Ultimate experience</p>
+         </div>
+        </div>
+       </div><!-- Move-in Cleaning Option -->
+       <div class="mb-8">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Special Services</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+         <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors duration-200" onclick="selectSpecialService('movein', 'Move-in Cleaning', 10000)">
+          <h3 class="text-lg font-bold text-text-dark mb-2">Move-in Cleaning</h3>
+          <p class="text-primary font-bold text-xl mb-2">₦10,000</p>
+          <p class="text-text-body text-sm">Perfect for new homes</p>
+         </div>
+         <div class="border-2 border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary transition-colors duration-200" onclick="selectSpecialService('gift', 'Gift Service', 5000)">
+          <h3 class="text-lg font-bold text-text-dark mb-2">Gift Service</h3>
+          <p class="text-primary font-bold text-xl mb-2">From ₦5,000</p>
+          <p class="text-text-body text-sm">Gift cleaning to loved ones</p>
+         </div>
+        </div>
+       </div><!-- Progress Indicator -->
+       <div class="mb-8">
+        <div class="flex justify-center items-center space-x-4">
+         <div class="flex items-center">
+          <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+           1
+          </div><span class="ml-2 text-text-dark font-medium">Property Details</span>
+         </div>
+         <div class="w-8 h-1 bg-gray-300" id="progress-1"></div>
+         <div class="flex items-center">
+          <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold" id="step-2">
+           2
+          </div><span class="ml-2 text-gray-600 font-medium" id="step-2-text">Cleaning Preferences</span>
+         </div>
+         <div class="w-8 h-1 bg-gray-300" id="progress-2"></div>
+         <div class="flex items-center">
+          <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold" id="step-3">
+           3
+          </div><span class="ml-2 text-gray-600 font-medium" id="step-3-text">Schedule &amp; Extras</span>
+         </div>
+         <div class="w-8 h-1 bg-gray-300" id="progress-3"></div>
+         <div class="flex items-center">
+          <div class="w-8 h-8 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center text-sm font-bold" id="step-4">
+           4
+          </div><span class="ml-2 text-gray-600 font-medium" id="step-4-text">Contact &amp; Booking</span>
+         </div>
+        </div>
+       </div><!-- Step 1: Property Details -->
+       <div id="booking-step-1" class="mb-8">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Step 1: Tell Us About Your Property</h2>
+        <div class="space-y-6">
+         <div><label class="block text-text-dark font-medium mb-2">How many bedrooms?</label> <select id="bedrooms-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updatePropertyPricing()"> <option value="1">1 Bedroom</option> <option value="2">2 Bedrooms</option> <option value="3">3 Bedrooms</option> <option value="4">4+ Bedrooms</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">How many bathrooms?</label> <select id="bathrooms-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updatePropertyPricing()"> <option value="1">1 Bathroom</option> <option value="2">2 Bathrooms</option> <option value="3">3 Bathrooms</option> <option value="4">4+ Bathrooms</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Property type</label> <select id="property-type-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updatePropertyPricing()"> <option value="apartment">Apartment</option> <option value="house">House</option> <option value="duplex">Duplex</option> <option value="office">Office</option> <option value="other">Other</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Approximate size (square feet) <span class="text-gray-500 text-sm">(optional)</span></label> <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option>Select size (optional)</option> <option>Under 500 sq ft</option> <option>500 - 1000 sq ft</option> <option>1000 - 1500 sq ft</option> <option>1500 - 2000 sq ft</option> <option>Over 2000 sq ft</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Do you have pets? *</label>
+          <div class="flex space-x-4"><label class="flex items-center"> <input type="radio" name="pets" value="yes" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>Yes</span> </label> <label class="flex items-center"> <input type="radio" name="pets" value="no" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>No</span> </label>
+          </div>
+         </div>
+        </div>
+        <div class="flex justify-end mt-8"><button onclick="nextStep(2)" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Next</button>
+        </div>
+       </div><!-- Step 2: Cleaning Preferences -->
+       <div id="booking-step-2" class="mb-8 hidden">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Step 2: Cleaning Preferences</h2>
+        <div class="space-y-6">
+         <div><label class="block text-text-dark font-medium mb-2">How often do you need cleaning? *</label> <select required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="checkFormValidation()"> <option value="">Select frequency</option> <option>One-time</option> <option>Weekly</option> <option>Bi-weekly</option> <option>Monthly</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Areas that need special attention (Additional charges apply)</label>
+          <div class="grid md:grid-cols-2 gap-3"><label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('kitchen', 1500, this.checked)"> <span>Kitchen deep clean (+₦1,500)</span> </label> <label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('bathroom', 1200, this.checked)"> <span>Bathroom deep clean (+₦1,200)</span> </label> <label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('windows', 2000, this.checked)"> <span>Window cleaning (+₦2,000)</span> </label> <label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('carpet', 3000, this.checked)"> <span>Carpet cleaning (+₦3,000)</span> </label> <label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('appliances', 1800, this.checked)"> <span>Appliance cleaning (+₦1,800)</span> </label> <label class="flex items-center"> <input type="checkbox" class="mr-2 text-primary focus:ring-primary" onchange="updateExtras('laundry', 2500, this.checked)"> <span>Laundry service (+₦2,500)</span> </label>
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Do you have cleaning supplies? *</label>
+          <div class="flex space-x-4"><label class="flex items-center"> <input type="radio" name="supplies" value="yes" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>Yes, I'll provide supplies</span> </label> <label class="flex items-center"> <input type="radio" name="supplies" value="no" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>No, please bring supplies</span> </label>
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Any allergies or sensitivities?</label> <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Please mention any allergies to cleaning products, fragrances, or other sensitivities..."></textarea>
+         </div>
+        </div>
+        <div class="flex justify-between mt-8"><button onclick="previousStep(1)" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Previous</button> <button onclick="nextStep(3)" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Next</button>
+        </div>
+       </div><!-- Step 3: Schedule & Extras -->
+       <div id="booking-step-3" class="mb-8 hidden">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Step 3: Schedule &amp; Additional Services</h2>
+        <div class="space-y-6">
+         <div><label class="block text-text-dark font-medium mb-2">Preferred date and time *</label>
+          <div class="grid md:grid-cols-2 gap-4"><input type="date" id="booking-date" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updateDateTime(); checkFormValidation()"> <select id="booking-time" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="updateDateTime(); checkFormValidation()"> <option value="">Select time</option> <option>Morning (8AM - 12PM)</option> <option>Afternoon (12PM - 4PM)</option> <option>Evening (4PM - 8PM)</option> </select>
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Alternative date (optional)</label>
+          <div class="grid md:grid-cols-2 gap-4"><input type="date" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option>Morning (8AM - 12PM)</option> <option>Afternoon (12PM - 4PM)</option> <option>Evening (4PM - 8PM)</option> </select>
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Will you be home during cleaning? *</label>
+          <div class="flex space-x-4"><label class="flex items-center"> <input type="radio" name="home_presence" value="yes" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>Yes, I'll be home</span> </label> <label class="flex items-center"> <input type="radio" name="home_presence" value="no" required class="mr-2 text-primary focus:ring-primary" onchange="checkFormValidation()"> <span>No, I'll provide access</span> </label>
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Estimated cleaning duration *</label> <select required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" onchange="checkFormValidation()"> <option value="">Select duration</option> <option>2-3 hours</option> <option>3-4 hours</option> <option>4-5 hours</option> <option>5+ hours</option> </select>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Special instructions or requests</label> <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="4" placeholder="Any specific instructions, areas to avoid, security codes, parking information, etc."></textarea>
+         </div>
+        </div>
+        <div class="flex justify-between mt-8"><button onclick="previousStep(2)" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Previous</button> <button onclick="nextStep(4)" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Next</button>
+        </div>
+       </div><!-- Step 4: Contact Information & Final Booking -->
+       <div id="booking-step-4" class="mb-8 hidden">
+        <h2 class="text-2xl font-bold text-text-dark mb-6">Step 4: Contact Information</h2>
+        <div class="space-y-6">
+         <div class="grid md:grid-cols-2 gap-4">
+          <div><label class="block text-text-dark font-medium mb-2">Full Name *</label> <input type="text" id="contact-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your full name" onchange="checkContactValidation()">
+          </div>
+          <div><label class="block text-text-dark font-medium mb-2">Phone Number *</label> <input type="tel" id="contact-phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="08012345678" oninput="validatePhoneInput(this)" onchange="checkContactValidation()" pattern="[0-9]+" title="Please enter numbers only">
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Email Address *</label> <input type="email" id="contact-email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your.email@example.com" onchange="validateEmailAndCheck()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Property Address *</label> <textarea id="contact-address" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Your full address including apartment/unit number, floor, and any access instructions" onchange="checkContactValidation()"></textarea>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Estate/Building Passcode (if applicable)</label> <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter gate code, building access code, or security passcode">
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">Emergency Contact (optional)</label>
+          <div class="grid md:grid-cols-2 gap-4"><input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Emergency contact name"> <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Emergency contact phone">
+          </div>
+         </div>
+         <div><label class="block text-text-dark font-medium mb-2">How did you hear about us?</label> <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"> <option>Google Search</option> <option>Social Media</option> <option>Friend/Family Referral</option> <option>Online Advertisement</option> <option>Other</option> </select>
+         </div><!-- Booking Summary -->
+         <div class="bg-bg-light p-6 rounded-lg mt-8">
+          <h3 class="text-xl font-bold text-text-dark mb-4">Booking Summary</h3>
+          <div class="space-y-2 text-text-body">
+           <p><span class="font-medium">Service:</span> <span id="summary-service">Please select a service</span></p>
+           <p><span class="font-medium">Base Price:</span> <span id="summary-base-price" class="text-primary font-bold">₦0</span></p>
+           <div id="extras-breakdown" class="ml-4 space-y-1 text-sm"></div>
+           <div class="border-t pt-2 mt-2">
+            <p><span class="font-medium text-lg">Total Price:</span> <span id="summary-total-price" class="text-primary font-bold text-lg">₦0</span></p>
+           </div>
+           <p><span class="font-medium">Date &amp; Time:</span> <span id="summary-datetime">Please select date and time</span></p>
+           <p class="text-sm text-gray-500 mt-4">*Final price may vary based on property condition and additional services requested</p>
+          </div>
+         </div><!-- Terms and Conditions -->
+         <div class="mt-6"><label class="flex items-start"> <input type="checkbox" id="terms-checkbox" class="mr-3 mt-1 text-primary focus:ring-primary" required onchange="checkContactValidation()"> <span class="text-sm text-text-body">I agree to the <a href="#" onclick="event.preventDefault(); showTerms();" class="text-primary hover:underline cursor-pointer">Terms and Conditions</a> and <a href="#" onclick="event.preventDefault(); showPrivacy();" class="text-primary hover:underline cursor-pointer">Privacy Policy</a>. I understand that final pricing may be adjusted based on property condition and additional services.</span> </label>
+         </div>
+        </div>
+        <div class="flex justify-between mt-8"><button onclick="previousStep(3)" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200">Previous</button> <button id="complete-booking-btn" onclick="submitBooking()" class="bg-gray-400 cursor-not-allowed text-white px-12 py-4 rounded-lg text-lg font-semibold transition-colors duration-200" disabled>Complete Booking</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </div><!-- Testimonials Section -->
+   <section class="py-20 bg-bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <h2 class="text-4xl font-bold text-text-dark text-center mb-4">What Our Customers Say</h2>
+     <p class="text-xl text-text-body text-center mb-16 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers who trust Shaare for their cleaning needs.</p>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Testimonial 1 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-1-img" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Sarah Johnson</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lagos Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"Absolutely amazing service! The Sparkler assigned to my home was professional, thorough, and paid attention to every detail. My apartment has never looked better. I've been using Shaare for 6 months now and couldn't be happier."</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Deep Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Bi-weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 2 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-2-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Michael Adebayo" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Michael Adebayo</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Victoria Island</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"As a busy professional, Shaare has been a lifesaver. The booking process is seamless, and the cleaners are always punctual and reliable. They use eco-friendly products which is important to me. Highly recommend!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Premium Clean</span> <span><span class="font-medium text-primary">Frequency:</span> Weekly</span>
+        </div>
+       </div>
+      </div><!-- Testimonial 3 -->
+      <div class="testimonial-card rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+       <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+       <div class="flex items-center mb-6 relative z-10">
+        <div class="relative"><img id="testimonial-3-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Emma Okafor" class="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-primary/20" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+         <div class="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+         </div>
+        </div>
+        <div>
+         <h4 class="text-lg font-bold text-text-dark">Emma Okafor</h4>
+         <p class="text-text-body text-sm flex items-center">
+          <svg class="w-4 h-4 mr-1 text-gray-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg> Lekki Phase 1</p>
+         <div class="flex text-yellow-400 mt-1"><span class="text-lg">⭐⭐⭐⭐⭐</span>
+         </div>
+        </div>
+       </div>
+       <div class="mb-4">
+        <svg class="w-8 h-8 text-primary/20 mb-2" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+       </div>
+       <p class="text-text-body leading-relaxed mb-6 italic">"I used Shaare for my move-in cleaning and was blown away by the quality. They made my new home spotless and move-in ready. The team was respectful of my belongings and worked efficiently. Will definitely use again!"</p>
+       <div class="text-sm text-gray-500 bg-gray-50 rounded-lg p-3">
+        <div class="flex justify-between items-center"><span><span class="font-medium text-primary">Service:</span> Move-in Clean</span> <span><span class="font-medium text-primary">Frequency:</span> One-time</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Call to Action -->
+     <div class="text-center mt-12">
+      <p class="text-lg text-text-body mb-6">Join thousands of satisfied customers who trust Shaare</p><button onclick="showBookingPage()" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 transform hover:scale-105">Book Your Cleaning Today</button>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-text-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="grid md:grid-cols-4 gap-8">
+      <div><a href="#" onclick="showMainPage()" class="text-2xl font-bold mb-4 block hover:text-primary transition-colors duration-200 cursor-pointer">shaare-logo</a>
+       <p class="text-gray-300">Professional cleaning services you can trust.</p>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Services</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>Regular Cleaning</li>
+        <li>Deep Cleaning</li>
+        <li>Move-in Cleaning</li>
+        <li>Laundry &amp; Ironing</li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Company</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li><a href="#" onclick="showAboutPage()" class="hover:text-primary">About Us</a></li>
+        <li>Contact</li>
+        <li>Careers</li>
+        <li><a href="#" onclick="event.preventDefault(); showTerms();" class="hover:text-primary cursor-pointer">Terms &amp; Conditions</a></li>
+        <li><a href="#" onclick="event.preventDefault(); showPrivacy();" class="hover:text-primary cursor-pointer">Privacy Policy</a></li>
+       </ul>
+      </div>
+      <div>
+       <h4 class="text-lg font-semibold mb-4">Contact</h4>
+       <ul class="space-y-2 text-gray-300">
+        <li>📞 +234 123 456 7890</li>
+        <li>✉️ hello@shaare.com</li>
+        <li>📍 Lagos, Nigeria</li>
+       </ul>
+      </div>
+     </div>
+     <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+      <p>© 2024 Shaare. All rights reserved.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // Navigation functions
+        function showMainPage() {
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('about-page').classList.add('hidden');
+            document.getElementById('booking-page').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showAboutPage() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('about-page').classList.remove('hidden');
+            document.getElementById('booking-page').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showBookingPage() {
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('about-page').classList.add('hidden');
+            document.getElementById('booking-page').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Booking state
+        let bookingData = {
+            service: '',
+            serviceName: '',
+            basePrice: 0,
+            propertyMultiplier: 0,
+            extras: {},
+            totalPrice: 0,
+            date: '',
+            time: ''
+        };
+
+        // Property pricing multipliers
+        function calculatePropertyMultiplier() {
+            const bedrooms = parseInt(document.getElementById('bedrooms-select')?.value || 1);
+            const bathrooms = parseInt(document.getElementById('bathrooms-select')?.value || 1);
+            const propertyType = document.getElementById('property-type-select')?.value || 'apartment';
+
+            // Base multipliers
+            let bedroomMultiplier = (bedrooms - 1) * 1000; // ₦1,000 per additional bedroom
+            let bathroomMultiplier = (bathrooms - 1) * 800; // ₦800 per additional bathroom
+            
+            // Property type multipliers
+            const propertyTypeMultipliers = {
+                'apartment': 0,
+                'house': 1500,
+                'duplex': 3000,
+                'office': 2000,
+                'other': 1000
+            };
+            
+            let propertyTypeMultiplier = propertyTypeMultipliers[propertyType] || 0;
+            
+            return bedroomMultiplier + bathroomMultiplier + propertyTypeMultiplier;
+        }
+
+        function updatePropertyPricing() {
+            bookingData.propertyMultiplier = calculatePropertyMultiplier();
+            updateBookingSummary();
+        }
+
+        // Booking functions
+        function selectService(service, serviceName, price) {
+            // Remove previous selections
+            document.querySelectorAll('.border-primary').forEach(el => {
+                el.classList.remove('border-primary');
+                el.classList.add('border-gray-200');
+            });
+            
+            // Add selection to clicked service
+            event.target.closest('div').classList.remove('border-gray-200');
+            event.target.closest('div').classList.add('border-primary');
+            
+            // Update booking data
+            bookingData.service = service;
+            bookingData.serviceName = serviceName;
+            bookingData.basePrice = price;
+            updateBookingSummary();
+        }
+
+        function selectSpecialService(service, serviceName, price) {
+            // Remove previous selections
+            document.querySelectorAll('.border-primary').forEach(el => {
+                el.classList.remove('border-primary');
+                el.classList.add('border-gray-200');
+            });
+            
+            // Add selection to clicked service
+            event.target.closest('div').classList.remove('border-gray-200');
+            event.target.closest('div').classList.add('border-primary');
+            
+            // Update booking data
+            bookingData.service = service;
+            bookingData.serviceName = serviceName;
+            bookingData.basePrice = price;
+            updateBookingSummary();
+        }
+
+        function updateExtras(extraName, price, isChecked) {
+            if (isChecked) {
+                bookingData.extras[extraName] = price;
+            } else {
+                delete bookingData.extras[extraName];
+            }
+            updateBookingSummary();
+        }
+
+        function updateDateTime() {
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            
+            bookingData.date = date;
+            bookingData.time = time;
+            
+            let dateTimeText = 'Please select date and time';
+            if (date && time) {
+                const dateObj = new Date(date);
+                const formattedDate = dateObj.toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                dateTimeText = `${formattedDate}, ${time}`;
+            }
+            
+            document.getElementById('summary-datetime').textContent = dateTimeText;
+        }
+
+        function updateBookingSummary() {
+            // Update service name
+            document.getElementById('summary-service').textContent = bookingData.serviceName || 'Please select a service';
+            
+            // Calculate adjusted base price (base price + property multiplier)
+            const adjustedBasePrice = bookingData.basePrice + bookingData.propertyMultiplier;
+            
+            // Update base price
+            document.getElementById('summary-base-price').textContent = `₦${adjustedBasePrice.toLocaleString()}`;
+            
+            // Update extras breakdown
+            const extrasDiv = document.getElementById('extras-breakdown');
+            extrasDiv.innerHTML = '';
+            
+            let extrasTotal = 0;
+            for (const [extraName, price] of Object.entries(bookingData.extras)) {
+                extrasTotal += price;
+                const extraDiv = document.createElement('div');
+                extraDiv.textContent = `+ ${getExtraDisplayName(extraName)}: ₦${price.toLocaleString()}`;
+                extrasDiv.appendChild(extraDiv);
+            }
+            
+            // Update total price
+            bookingData.totalPrice = adjustedBasePrice + extrasTotal;
+            document.getElementById('summary-total-price').textContent = `₦${bookingData.totalPrice.toLocaleString()}`;
+        }
+
+        function getExtraDisplayName(extraName) {
+            const names = {
+                'kitchen': 'Kitchen deep clean',
+                'bathroom': 'Bathroom deep clean',
+                'windows': 'Window cleaning',
+                'carpet': 'Carpet cleaning',
+                'appliances': 'Appliance cleaning',
+                'laundry': 'Laundry service'
+            };
+            return names[extraName] || extraName;
+        }
+
+        function showTerms() {
+            document.getElementById('terms-modal').classList.remove('hidden');
+        }
+
+        function showPrivacy() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function showContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden');
+        }
+
+        // Contact form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const firstName = document.getElementById('contact-first-name').value.trim();
+                    const lastName = document.getElementById('contact-last-name').value.trim();
+                    const email = document.getElementById('contact-form-email').value.trim();
+                    const phone = document.getElementById('contact-form-phone').value.trim();
+                    const subject = document.getElementById('contact-subject').value;
+                    const message = document.getElementById('contact-message').value.trim();
+                    
+                    // Validate required fields
+                    if (!firstName || !lastName || !email || !phone || !subject || !message) {
+                        showErrorMessage('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Validate email format
+                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailRegex.test(email)) {
+                        showErrorMessage('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    // Validate phone (numbers only, minimum 10 digits)
+                    const phoneRegex = /^[0-9]{10,}$/;
+                    if (!phoneRegex.test(phone)) {
+                        showErrorMessage('Please enter a valid phone number (numbers only, minimum 10 digits).');
+                        return;
+                    }
+                    
+                    const submitButton = e.target.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    
+                    // Show loading state
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...';
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                        
+                        // Show success message
+                        const successDiv = document.createElement('div');
+                        successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300';
+                        successDiv.innerHTML = `
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold">Message Sent!</p>
+                                    <p class="text-sm">We'll get back to you within 24 hours.</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        document.body.appendChild(successDiv);
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Close modal
+                        closeModal('contact-modal');
+                        
+                        // Remove success message after 5 seconds
+                        setTimeout(() => {
+                            successDiv.style.transform = 'translateX(100%)';
+                            setTimeout(() => {
+                                if (successDiv.parentNode) {
+                                    successDiv.parentNode.removeChild(successDiv);
+                                }
+                            }, 300);
+                        }, 5000);
+                        
+                    }, 2000);
+                });
+            }
+        });
+
+        // Video management
+        function changeHeroVideo(videoUrl) {
+            const video = document.getElementById('hero-video');
+            const source = video.querySelector('source');
+            source.src = videoUrl;
+            video.load(); // Reload the video with new source
+        }
+
+        // Example function to demonstrate video changing capability
+        function setDefaultVideo() {
+            changeHeroVideo('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');
+        }
+
+        function setAlternativeVideo() {
+            changeHeroVideo('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4');
+        }
+
+        // Service image management functions
+        function changeServiceImage(serviceId, imageUrl) {
+            const img = document.getElementById(serviceId);
+            if (img) {
+                img.src = imageUrl;
+            }
+        }
+
+        // Example functions to change service images
+        function changeRegularCleaningImage(imageUrl) {
+            changeServiceImage('regular-cleaning-img', imageUrl);
+        }
+
+        function changeDeepCleaningImage(imageUrl) {
+            changeServiceImage('deep-cleaning-img', imageUrl);
+        }
+
+        function changeMoveInCleaningImage(imageUrl) {
+            changeServiceImage('movein-cleaning-img', imageUrl);
+        }
+
+        // Set default service images
+        function setDefaultServiceImages() {
+            changeRegularCleaningImage('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+            changeDeepCleaningImage('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+            changeMoveInCleaningImage('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+        }
+
+        // Alternative service images
+        function setAlternativeServiceImages() {
+            changeRegularCleaningImage('https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+            changeDeepCleaningImage('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+            changeMoveInCleaningImage('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+        }
+
+        // Multi-step booking navigation
+        function nextStep(step) {
+            // Validate current step before proceeding
+            const currentStep = step - 1;
+            if (!validateStep(currentStep)) {
+                return; // Don't proceed if validation fails
+            }
+            
+            // Hide current step
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`booking-step-${i}`).classList.add('hidden');
+            }
+            
+            // Show next step
+            document.getElementById(`booking-step-${step}`).classList.remove('hidden');
+            
+            // Update progress indicator
+            updateProgressIndicator(step);
+            
+            // Update next button state for the new step
+            updateNextButtonState(step);
+        }
+
+        function validateStep(stepNumber, silentCheck = false) {
+            let isValid = true;
+            let errorMessage = '';
+
+            if (stepNumber === 1) {
+                // Validate Step 1: Property Details
+                const pets = document.querySelector('input[name="pets"]:checked');
+                
+                if (!pets) {
+                    isValid = false;
+                    errorMessage = 'Please select whether you have pets or not.';
+                    if (!silentCheck) {
+                        // Highlight the pets section
+                        const petsSection = document.querySelector('input[name="pets"]').closest('div').closest('div');
+                        petsSection.classList.add('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        setTimeout(() => {
+                            petsSection.classList.remove('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        }, 3000);
+                    }
+                }
+            } else if (stepNumber === 2) {
+                // Validate Step 2: Cleaning Preferences
+                const frequency = document.querySelector('#booking-step-2 select[required]').value;
+                const supplies = document.querySelector('input[name="supplies"]:checked');
+                
+                if (!frequency) {
+                    isValid = false;
+                    errorMessage = 'Please select how often you need cleaning.';
+                    if (!silentCheck) {
+                        document.querySelector('#booking-step-2 select[required]').classList.add('border-red-500');
+                        setTimeout(() => {
+                            document.querySelector('#booking-step-2 select[required]').classList.remove('border-red-500');
+                        }, 3000);
+                    }
+                } else if (!supplies) {
+                    isValid = false;
+                    errorMessage = 'Please select whether you have cleaning supplies.';
+                    if (!silentCheck) {
+                        const suppliesSection = document.querySelector('input[name="supplies"]').closest('div').closest('div');
+                        suppliesSection.classList.add('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        setTimeout(() => {
+                            suppliesSection.classList.remove('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        }, 3000);
+                    }
+                }
+            } else if (stepNumber === 3) {
+                // Validate Step 3: Schedule & Extras
+                const date = document.getElementById('booking-date').value;
+                const time = document.getElementById('booking-time').value;
+                const homePresence = document.querySelector('input[name="home_presence"]:checked');
+                const duration = document.querySelector('#booking-step-3 select[required]').value;
+                
+                if (!date) {
+                    isValid = false;
+                    errorMessage = 'Please select a preferred date.';
+                    if (!silentCheck) {
+                        document.getElementById('booking-date').classList.add('border-red-500');
+                        setTimeout(() => {
+                            document.getElementById('booking-date').classList.remove('border-red-500');
+                        }, 3000);
+                    }
+                } else if (!time) {
+                    isValid = false;
+                    errorMessage = 'Please select a preferred time.';
+                    if (!silentCheck) {
+                        document.getElementById('booking-time').classList.add('border-red-500');
+                        setTimeout(() => {
+                            document.getElementById('booking-time').classList.remove('border-red-500');
+                        }, 3000);
+                    }
+                } else if (!homePresence) {
+                    isValid = false;
+                    errorMessage = 'Please select whether you will be home during cleaning.';
+                    if (!silentCheck) {
+                        const homeSection = document.querySelector('input[name="home_presence"]').closest('div').closest('div');
+                        homeSection.classList.add('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        setTimeout(() => {
+                            homeSection.classList.remove('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                        }, 3000);
+                    }
+                } else if (!duration) {
+                    isValid = false;
+                    errorMessage = 'Please select the estimated cleaning duration.';
+                    if (!silentCheck) {
+                        document.querySelector('#booking-step-3 select[required]').classList.add('border-red-500');
+                        setTimeout(() => {
+                            document.querySelector('#booking-step-3 select[required]').classList.remove('border-red-500');
+                        }, 3000);
+                    }
+                }
+            }
+
+            // Show error message if validation fails and not silent check
+            if (!isValid && !silentCheck) {
+                showErrorMessage(errorMessage);
+            }
+
+            return isValid;
+        }
+
+        function showErrorMessage(message) {
+            // Remove existing error message
+            const existingError = document.getElementById('validation-error');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Create new error message
+            const errorDiv = document.createElement('div');
+            errorDiv.id = 'validation-error';
+            errorDiv.className = 'fixed top-20 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300';
+            errorDiv.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                        <p class="font-semibold">Required Field Missing</p>
+                        <p class="text-sm">${message}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(errorDiv);
+            
+            // Remove error message after 4 seconds
+            setTimeout(() => {
+                errorDiv.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (errorDiv.parentNode) {
+                        errorDiv.parentNode.removeChild(errorDiv);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        function previousStep(step) {
+            // Hide current step
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`booking-step-${i}`).classList.add('hidden');
+            }
+            
+            // Show previous step
+            document.getElementById(`booking-step-${step}`).classList.remove('hidden');
+            
+            // Update progress indicator
+            updateProgressIndicator(step);
+        }
+
+        function updateProgressIndicator(currentStep) {
+            // Reset all steps
+            for (let i = 1; i <= 4; i++) {
+                const stepElement = document.getElementById(`step-${i}`);
+                const stepText = document.getElementById(`step-${i}-text`);
+                const progressBar = document.getElementById(`progress-${i}`);
+                
+                if (stepElement) {
+                    if (i < currentStep) {
+                        // Completed steps
+                        stepElement.classList.remove('bg-gray-300', 'text-gray-600');
+                        stepElement.classList.add('bg-green-500', 'text-white');
+                        if (stepText) {
+                            stepText.classList.remove('text-gray-600');
+                            stepText.classList.add('text-green-500');
+                        }
+                        if (progressBar) {
+                            progressBar.classList.remove('bg-gray-300');
+                            progressBar.classList.add('bg-green-500');
+                        }
+                    } else if (i === currentStep) {
+                        // Current step
+                        stepElement.classList.remove('bg-gray-300', 'text-gray-600', 'bg-green-500');
+                        stepElement.classList.add('bg-primary', 'text-white');
+                        if (stepText) {
+                            stepText.classList.remove('text-gray-600', 'text-green-500');
+                            stepText.classList.add('text-text-dark');
+                        }
+                    } else {
+                        // Future steps
+                        stepElement.classList.remove('bg-primary', 'text-white', 'bg-green-500');
+                        stepElement.classList.add('bg-gray-300', 'text-gray-600');
+                        if (stepText) {
+                            stepText.classList.remove('text-text-dark', 'text-green-500');
+                            stepText.classList.add('text-gray-600');
+                        }
+                        if (progressBar) {
+                            progressBar.classList.remove('bg-green-500');
+                            progressBar.classList.add('bg-gray-300');
+                        }
+                    }
+                }
+            }
+        }
+
+        function updateNextButtonState(currentStep) {
+            const nextButtons = document.querySelectorAll(`#booking-step-${currentStep} button[onclick*="nextStep"]`);
+            nextButtons.forEach(button => {
+                if (validateStep(currentStep, true)) {
+                    button.disabled = false;
+                    button.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                    button.classList.add('bg-primary', 'hover:bg-primary-dark');
+                } else {
+                    button.disabled = true;
+                    button.classList.remove('bg-primary', 'hover:bg-primary-dark');
+                    button.classList.add('bg-gray-400', 'cursor-not-allowed');
+                }
+            });
+        }
+
+        function checkFormValidation() {
+            // Get current visible step
+            let currentStep = 1;
+            for (let i = 1; i <= 4; i++) {
+                if (!document.getElementById(`booking-step-${i}`).classList.contains('hidden')) {
+                    currentStep = i;
+                    break;
+                }
+            }
+            updateNextButtonState(currentStep);
+        }
+
+        function validatePhoneInput(input) {
+            // Remove any non-numeric characters
+            let value = input.value.replace(/[^0-9]/g, '');
+            input.value = value;
+            
+            // Add visual feedback for invalid input
+            if (value.length > 0 && value.length < 10) {
+                input.classList.add('border-yellow-400');
+                input.classList.remove('border-red-500', 'border-green-500');
+            } else if (value.length >= 10) {
+                input.classList.add('border-green-500');
+                input.classList.remove('border-yellow-400', 'border-red-500');
+            } else {
+                input.classList.remove('border-yellow-400', 'border-green-500', 'border-red-500');
+            }
+        }
+
+        function validateEmailAndCheck() {
+            const emailInput = document.getElementById('contact-email');
+            const email = emailInput.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            
+            if (email.length > 0) {
+                if (emailRegex.test(email)) {
+                    emailInput.classList.add('border-green-500');
+                    emailInput.classList.remove('border-red-500', 'border-yellow-400');
+                } else {
+                    emailInput.classList.add('border-red-500');
+                    emailInput.classList.remove('border-green-500', 'border-yellow-400');
+                }
+            } else {
+                emailInput.classList.remove('border-red-500', 'border-green-500', 'border-yellow-400');
+            }
+            
+            checkContactValidation();
+        }
+
+        function checkContactValidation() {
+            const name = document.getElementById('contact-name').value.trim();
+            const phone = document.getElementById('contact-phone').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const address = document.getElementById('contact-address').value.trim();
+            const termsChecked = document.getElementById('terms-checkbox').checked;
+            
+            // Validate email format
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isValidEmail = emailRegex.test(email);
+            
+            // Validate phone (numbers only, minimum 10 digits)
+            const isValidPhone = /^[0-9]{10,}$/.test(phone);
+            
+            const completeBookingBtn = document.getElementById('complete-booking-btn');
+            
+            if (name && isValidPhone && isValidEmail && address && termsChecked) {
+                // All required fields filled and terms accepted
+                completeBookingBtn.disabled = false;
+                completeBookingBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                completeBookingBtn.classList.add('bg-primary', 'hover:bg-primary-dark', 'transform', 'hover:scale-105');
+            } else {
+                // Some fields missing or terms not accepted
+                completeBookingBtn.disabled = true;
+                completeBookingBtn.classList.remove('bg-primary', 'hover:bg-primary-dark', 'transform', 'hover:scale-105');
+                completeBookingBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        }
+
+        function submitBooking() {
+            // Final validation check
+            const name = document.getElementById('contact-name').value.trim();
+            const phone = document.getElementById('contact-phone').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const address = document.getElementById('contact-address').value.trim();
+            const termsChecked = document.getElementById('terms-checkbox').checked;
+            
+            // Validate email format
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isValidEmail = emailRegex.test(email);
+            
+            // Validate phone (numbers only, minimum 10 digits)
+            const isValidPhone = /^[0-9]{10,}$/.test(phone);
+            
+            // Check if all required fields are filled and valid
+            if (!name || !isValidPhone || !isValidEmail || !address) {
+                let errorMessages = [];
+                if (!name) errorMessages.push('Full Name is required');
+                if (!phone) {
+                    errorMessages.push('Phone Number is required');
+                } else if (!isValidPhone) {
+                    errorMessages.push('Phone Number must be numbers only (minimum 10 digits)');
+                }
+                if (!email) {
+                    errorMessages.push('Email Address is required');
+                } else if (!isValidEmail) {
+                    errorMessages.push('Please enter a valid email address');
+                }
+                if (!address) errorMessages.push('Property Address is required');
+                
+                showErrorMessage(`Please fix the following: ${errorMessages.join(', ')}`);
+                
+                // Highlight invalid fields
+                if (!name) document.getElementById('contact-name').classList.add('border-red-500');
+                if (!isValidPhone) document.getElementById('contact-phone').classList.add('border-red-500');
+                if (!isValidEmail) document.getElementById('contact-email').classList.add('border-red-500');
+                if (!address) document.getElementById('contact-address').classList.add('border-red-500');
+                
+                // Remove red borders after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('contact-name').classList.remove('border-red-500');
+                    document.getElementById('contact-phone').classList.remove('border-red-500');
+                    document.getElementById('contact-email').classList.remove('border-red-500');
+                    document.getElementById('contact-address').classList.remove('border-red-500');
+                }, 3000);
+                
+                return;
+            }
+            
+            // Check if terms are accepted
+            if (!termsChecked) {
+                showErrorMessage('Please accept the Terms and Conditions to complete your booking.');
+                
+                // Highlight terms checkbox
+                const termsSection = document.getElementById('terms-checkbox').closest('div');
+                termsSection.classList.add('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                setTimeout(() => {
+                    termsSection.classList.remove('border-2', 'border-red-300', 'rounded-lg', 'p-2');
+                }, 3000);
+                
+                return;
+            }
+            
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.disabled = true;
+            button.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Processing...';
+            
+            // Simulate booking process
+            setTimeout(() => {
+                button.disabled = false;
+                button.textContent = originalText;
+                
+                // Show success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300';
+                successDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <div>
+                            <p class="font-semibold">Booking Confirmed!</p>
+                            <p class="text-sm">We'll contact you shortly to confirm details.</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(successDiv);
+                
+                // Reset the entire booking form
+                resetBookingForm();
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successDiv.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(successDiv);
+                    }, 300);
+                }, 5000);
+                
+            }, 2000);
+        }
+
+        function resetBookingForm() {
+            // Reset booking data
+            bookingData = {
+                service: '',
+                serviceName: '',
+                basePrice: 0,
+                propertyMultiplier: 0,
+                extras: {},
+                totalPrice: 0,
+                date: '',
+                time: ''
+            };
+            
+            // Reset all form fields
+            // Step 1 fields
+            document.getElementById('bedrooms-select').value = '1';
+            document.getElementById('bathrooms-select').value = '1';
+            document.getElementById('property-type-select').value = 'apartment';
+            document.querySelectorAll('#booking-step-1 input[name="pets"]').forEach(radio => radio.checked = false);
+            
+            // Step 2 fields
+            document.querySelectorAll('#booking-step-2 select').forEach(select => select.selectedIndex = 0);
+            document.querySelectorAll('#booking-step-2 input[name="supplies"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('#booking-step-2 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+            document.querySelectorAll('#booking-step-2 textarea').forEach(textarea => textarea.value = '');
+            
+            // Step 3 fields
+            document.getElementById('booking-date').value = '';
+            document.getElementById('booking-time').value = '';
+            document.querySelectorAll('#booking-step-3 select').forEach(select => select.selectedIndex = 0);
+            document.querySelectorAll('#booking-step-3 input[name="home_presence"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('#booking-step-3 textarea').forEach(textarea => textarea.value = '');
+            
+            // Step 4 fields
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-phone').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-address').value = '';
+            document.getElementById('terms-checkbox').checked = false;
+            document.querySelectorAll('#booking-step-4 input[type="text"]').forEach(input => input.value = '');
+            document.querySelectorAll('#booking-step-4 input[type="tel"]').forEach(input => input.value = '');
+            document.querySelectorAll('#booking-step-4 select').forEach(select => select.selectedIndex = 0);
+            
+            // Remove all border highlights from service cards
+            document.querySelectorAll('.border-primary').forEach(el => {
+                el.classList.remove('border-primary');
+                el.classList.add('border-gray-200');
+            });
+            
+            // Reset to step 1
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`booking-step-${i}`).classList.add('hidden');
+            }
+            document.getElementById('booking-step-1').classList.remove('hidden');
+            updateProgressIndicator(1);
+            
+            // Update summary to show empty state
+            updateBookingSummary();
+            document.getElementById('summary-datetime').textContent = 'Please select date and time';
+            
+            // Update button state
+            updateNextButtonState(1);
+            checkContactValidation();
+        }
+
+        // Initialize form validation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial button states
+            updateNextButtonState(1);
+            
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slide-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            document.querySelectorAll('.testimonial-card, .service-card-container, .pricing-card-container').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Preload critical images
+            const criticalImages = [
+                'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+            
+            // Add smooth scrolling for mobile
+            if ('scrollBehavior' in document.documentElement.style) {
+                document.documentElement.style.scrollBehavior = 'smooth';
+            }
+            
+            // Performance monitoring
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        if (perfData && perfData.loadEventEnd - perfData.loadEventStart > 3000) {
+                            console.log('Page load time exceeded 3 seconds');
+                        }
+                    }, 0);
+                });
+            }
+        });
+
+        // Feedback functions
+        let currentRating = 0;
+
+        function showFeedbackModal() {
+            document.getElementById('feedback-modal').classList.remove('hidden');
+        }
+
+        function closeFeedbackModal() {
+            document.getElementById('feedback-modal').classList.add('hidden');
+            // Reset form
+            document.getElementById('feedback-form').reset();
+            currentRating = 0;
+            updateRatingDisplay();
+        }
+
+        function setRating(rating) {
+            currentRating = rating;
+            document.getElementById('feedback-rating').value = rating;
+            updateRatingDisplay();
+        }
+
+        function updateRatingDisplay() {
+            const stars = document.querySelectorAll('.rating-star');
+            const ratingText = document.getElementById('rating-text');
+            
+            stars.forEach((star, index) => {
+                if (index < currentRating) {
+                    star.classList.remove('text-gray-300');
+                    star.classList.add('text-yellow-400');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                }
+            });
+
+            const ratingTexts = {
+                0: 'Click stars to rate',
+                1: 'Poor - We need to improve',
+                2: 'Fair - Below expectations',
+                3: 'Good - Met expectations',
+                4: 'Very Good - Exceeded expectations',
+                5: 'Excellent - Outstanding service!'
+            };
+
+            ratingText.textContent = ratingTexts[currentRating];
+            ratingText.className = currentRating === 0 ? 'text-text-body font-medium' : 
+                                 currentRating <= 2 ? 'text-red-500 font-medium' :
+                                 currentRating === 3 ? 'text-yellow-500 font-medium' :
+                                 'text-green-500 font-medium';
+        }
+
+        // Testimonial image management functions
+        function changeTestimonialImage(testimonialId, imageUrl) {
+            const img = document.getElementById(testimonialId);
+            if (img) {
+                img.src = imageUrl;
+            }
+        }
+
+        function changeTestimonial1Image(imageUrl) {
+            changeTestimonialImage('testimonial-1-img', imageUrl);
+        }
+
+        function changeTestimonial2Image(imageUrl) {
+            changeTestimonialImage('testimonial-2-img', imageUrl);
+        }
+
+        function changeTestimonial3Image(imageUrl) {
+            changeTestimonialImage('testimonial-3-img', imageUrl);
+        }
+
+        // Set default testimonial images
+        function setDefaultTestimonialImages() {
+            changeTestimonial1Image('https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+            changeTestimonial2Image('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+            changeTestimonial3Image('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+        }
+
+        // Alternative testimonial images
+        function setAlternativeTestimonialImages() {
+            changeTestimonial1Image('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+            changeTestimonial2Image('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+            changeTestimonial3Image('https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80');
+        }
+
+        // Feedback form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackForm = document.getElementById('feedback-form');
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const rating = document.getElementById('feedback-rating').value;
+                    const name = document.getElementById('feedback-name').value.trim();
+                    const email = document.getElementById('feedback-email').value.trim();
+                    const improvement = document.getElementById('feedback-improvement').value.trim();
+                    
+                    // Validate required fields
+                    if (!rating || !name || !email || !improvement) {
+                        showErrorMessage('Please fill in all required fields and provide a rating.');
+                        return;
+                    }
+                    
+                    // Validate email format
+                    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    if (!emailRegex.test(email)) {
+                        showErrorMessage('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    const submitButton = e.target.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    
+                    // Show loading state
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Submitting...';
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalText;
+                        
+                        // Show success message
+                        const successDiv = document.createElement('div');
+                        successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg z-50 transform transition-all duration-300';
+                        successDiv.innerHTML = `
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-semibold">Thank You!</p>
+                                    <p class="text-sm">Your feedback helps us improve our service.</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        document.body.appendChild(successDiv);
+                        
+                        // Close modal and reset form
+                        closeFeedbackModal();
+                        
+                        // Remove success message after 5 seconds
+                        setTimeout(() => {
+                            successDiv.style.transform = 'translateX(100%)';
+                            setTimeout(() => {
+                                if (successDiv.parentNode) {
+                                    successDiv.parentNode.removeChild(successDiv);
+                                }
+                            }, 300);
+                        }, 5000);
+                        
+                    }, 2000);
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Feedback button and scroll to top
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.getElementById('scroll-to-top');
+            const feedbackButton = document.getElementById('feedback-button');
+            
+            if (!scrollButton) {
+                // Create scroll to top button
+                const button = document.createElement('button');
+                button.id = 'scroll-to-top';
+                button.className = 'fixed bottom-6 right-6 bg-primary hover:bg-primary-dark text-white p-3 rounded-full shadow-lg transition-all duration-300 transform scale-0 z-50';
+                button.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>';
+                button.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.appendChild(button);
+            }
+            
+            if (!feedbackButton) {
+                // Create feedback button
+                const button = document.createElement('button');
+                button.id = 'feedback-button';
+                button.className = 'fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 transform scale-100 z-50 flex items-center';
+                button.innerHTML = '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg><span class="text-sm font-medium">Feedback</span>';
+                button.onclick = () => showFeedbackModal();
+                document.body.appendChild(button);
+            }
+            
+            const scrollButton2 = document.getElementById('scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollButton2.classList.remove('scale-0');
+                scrollButton2.classList.add('scale-100');
+            } else {
+                scrollButton2.classList.remove('scale-100');
+                scrollButton2.classList.add('scale-0');
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6af921051765e0',t:'MTc2OTg4MTAwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
